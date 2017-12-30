@@ -20,6 +20,13 @@ path = "src/bin/main.rs"
 doc = false
 required-features = ["binary"]
 
+[[bin]]
+name = "viewflif"
+path = "src/bin/viewflif.rs"
+doc = false
+required-features = ["viewflif"]
+
+
 [dependencies]
 inflate = "0.3.0"
 num-traits = "0.1.40"
@@ -28,9 +35,13 @@ num-traits = "0.1.40"
 structopt = { version = "0.1.0", optional = true }
 structopt-derive = { version = "0.1.0", optional = true }
 png = { version = "0.11.0", optional = true }
+sdl2 = { version = "0.31", optional = true , features= ["image"] }
+image = {version = "*", optional = true}
 
 [dev-dependencies]
 png = "0.11.0"
 
 [features]
 binary = ["structopt", "structopt-derive", "png"]
+
+viewflif = ["sdl2", "png", "structopt", "structopt-derive", "image"]
